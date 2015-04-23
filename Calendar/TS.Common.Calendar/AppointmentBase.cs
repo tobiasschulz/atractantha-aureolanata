@@ -6,9 +6,9 @@ namespace TS.Common.Calendar
 {
 	public class AppointmentBase
 	{
-		public string Title { get; set; } = "";
+		public string Title { get; set; }
 
-		public string Organizer { get; set; } = "test@example.com";
+		public string Organizer { get; set; }
 
 		public DateTime StartDate { get; set; }
 
@@ -16,13 +16,21 @@ namespace TS.Common.Calendar
 
 		public TimeSpan Duration { get { return EndDate - StartDate; } set { EndDate = StartDate + value; } }
 
-		public string Body { get; set; } = "";
+		public string Body { get; set; }
 
-		public string Location { get; set; } = "";
+		public string Location { get; set; }
 
-		public bool IsAllDayEvent { get; set; } = false;
+		public bool IsAllDayEvent { get; set; }
 
-		public string UID { get; set; } = "0";
+		public string UID { get; set; }
+
+		public AppointmentBase () {
+			Title = "";
+			Organizer= "test@example.com";
+			Body = "";
+			Location = "";
+			UID = "";
+		}
 
 		public override string ToString ()
 		{
