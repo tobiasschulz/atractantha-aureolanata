@@ -1,12 +1,10 @@
 ﻿using System;
+using Core.Common;
 
 namespace TS.Google.Calendar
 {
-	public class MyClass
+	public interface IGoogleConfig
 	{
-		public MyClass ()
-		{
-		}
 	}
 }
 

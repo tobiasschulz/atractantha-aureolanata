@@ -10,8 +10,9 @@ namespace UniversityCalendar
 
 		public override IEnumerable<AppointmentBase> Appointments { get { return appointments; } }
 
-		public  UniCalendar ()
+		public UniCalendar (UniConfig config)
 		{
+
 		}
 
 		public void Add (UniAppointment appointment)
