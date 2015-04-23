@@ -5,6 +5,7 @@ namespace TS.Google.Calendar
 {
 	public interface IGoogleConfig
 	{
+		string GoogleUser { get; }
 	}
 }
 

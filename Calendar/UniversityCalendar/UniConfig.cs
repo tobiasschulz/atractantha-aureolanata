@@ -9,6 +9,16 @@ namespace UniversityCalendar
 		public UniConfig ()
 		{
 		}
+
+		#region IGoogleConfig implementation
+
+		public string GoogleUser {
+			get {
+				return "tobiasschulz.frauas@gmail.com";
+			}
+		}
+
+		#endregion
 	}
 }
 

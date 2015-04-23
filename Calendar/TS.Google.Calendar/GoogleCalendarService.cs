@@ -8,6 +8,7 @@ using System.Threading;
 using TS.Common.Calendar;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Common;
 
 namespace TS.Google.Calendar
 {
@@ -16,7 +17,7 @@ namespace TS.Google.Calendar
 		private readonly string ClientId = StringHelper.Base64Decode ("MTUxMjM0ODM1NjE5LXA3b2ZwbTI3NXBqamlqZjVwOTcwbzk0ZWEzM2VubjE1LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29t");
 		private readonly string ClientSecret = StringHelper.Base64Decode ("X21XdFpRMEJxS21zdFhjNnVVcTVzaHJR");
 		private const string RedirectUri = "urn:ietf:wg:oauth:2.0:oob";
-		private const string ApplicationName = "Atractantha Aureolanata\n";
+		private const string ApplicationName = "AtractanthaAureolanata";
 
 		private CalendarService service;
 		private string calendarId;
@@ -25,8 +26,8 @@ namespace TS.Google.Calendar
 		{
 			UserCredential credential = GoogleWebAuthorizationBroker.AuthorizeAsync (
 				                            new ClientSecrets { ClientId = ClientId, ClientSecret = ClientSecret },
-				                            new[] { CalendarService.Scope.Calendar }, 
-				                            "user", CancellationToken.None, 
+				                            new[] { CalendarService.Scope.Calendar },
+				                            config.GoogleUser, CancellationToken.None, 
 				                            new FileDataStore ("Drive.Auth.Store"))
 				.Result;
 
@@ -36,14 +37,21 @@ namespace TS.Google.Calendar
 			});
 
 			var calendars = service.CalendarList.List ().Execute ().Items;
+			Log.Info ("List of google calendars:");
+			Log.Indent++;
 			foreach (CalendarListEntry entry in calendars) {
 				Log.Info (entry.Summary + " - " + entry.Id);
 				if (entry.Summary.ToLower ().Contains ("stundenplan")) {
 					calendarId = entry.Id;
 					Log.Indent++;
-					Log.Info ("We'll use this!");
+					Log.Info ("We'll use this one!");
 					Log.Indent--;
 				}
+			}
+			Log.Indent--;
+
+			if (string.IsNullOrWhiteSpace (calendarId)) {
+				throw new ArgumentException ("The google account has no calendar that matches the required name.");
 			}
 		}
 
@@ -54,7 +62,7 @@ namespace TS.Google.Calendar
 			IEnumerable<Event> newEvents = from e in allEvents
 			                               where existingEvents.Items.Any (ee => ee.Summary == e.Summary)
 			                               select e; 
-			//AddEvents (newEvents);
+			AddEvents (newEvents);
 		}
 
 		Events ListEvents ()

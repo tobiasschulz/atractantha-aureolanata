@@ -30,12 +30,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Net" />
-    <Reference Include="Core.Portable">
-      <HintPath>..\packages\Core.Common.0.1.18\lib\net40\Core.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Core.Platform">
-      <HintPath>..\packages\Core.Common.0.1.18\lib\net40\Core.Platform.dll</HintPath>
-    </Reference>
     <Reference Include="Google.Apis">
       <HintPath>..\packages\Google.Apis.1.9.1\lib\net40\Google.Apis.dll</HintPath>
     </Reference>
@@ -92,6 +86,12 @@
     </Reference>
     <Reference Include="Zlib.Portable">
       <HintPath>..\packages\Zlib.Portable.1.10.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Portable">
+      <HintPath>..\packages\Core.Common.0.1.26\lib\net40\Core.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Platform">
+      <HintPath>..\packages\Core.Common.0.1.26\lib\net40\Core.Platform.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
