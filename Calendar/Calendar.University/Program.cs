@@ -2,7 +2,7 @@
 using TS.Google.Calendar;
 using System;
 
-namespace UniversityCalendar
+namespace Calendar.University
 {
 	public class Program
 	{

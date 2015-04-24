@@ -2,7 +2,7 @@ using System;
 using TS.Common.Calendar;
 using System.Collections.Generic;
 
-namespace UniversityCalendar
+namespace Calendar.University
 {
 	public class UniAppointment : AppointmentBase
 	{

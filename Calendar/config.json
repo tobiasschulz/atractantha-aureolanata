@@ -1,0 +1,138 @@
+{
+  "semester": [
+    {
+      "season": "Summer",
+      "year": 2015,
+      "start": "2015-04-13T00:00:00",
+      "end": "2015-07-17T00:00:00",
+      "courses": [
+        {
+          "subject_short_name": "ti",
+          "timeslot_name": "1",
+          "day_of_week": "Monday",
+          "course_type": "Lecture",
+          "building": "1",
+          "room": "131"
+        },
+        {
+          "subject_short_name": "ti",
+          "timeslot_name": "2",
+          "day_of_week": "Monday",
+          "course_type": "Exercise",
+          "building": "1",
+          "room": "129"
+        },
+        {
+          "subject_short_name": "rt",
+          "timeslot_name": "2",
+          "day_of_week": "Wednesday",
+          "course_type": "Lecture",
+          "building": null,
+          "room": "Audimax"
+        },
+        {
+          "subject_short_name": "rt",
+          "timeslot_name": "3",
+          "day_of_week": "Wednesday",
+          "course_type": "Exercise",
+          "building": "1",
+          "room": "250"
+        },
+        {
+          "subject_short_name": "disma",
+          "timeslot_name": "2",
+          "day_of_week": "Thursday",
+          "course_type": "Lecture",
+          "building": null,
+          "room": "Audimax"
+        },
+        {
+          "subject_short_name": "disma",
+          "timeslot_name": "3",
+          "day_of_week": "Thursday",
+          "course_type": "Exercise",
+          "building": "1",
+          "room": "130"
+        },
+        {
+          "subject_short_name": "disma",
+          "timeslot_name": "1",
+          "day_of_week": "Friday",
+          "course_type": "Lecture",
+          "building": null,
+          "room": "Audimax"
+        },
+        {
+          "subject_short_name": "swed",
+          "timeslot_name": "2",
+          "day_of_week": "Friday",
+          "course_type": "Lecture",
+          "building": null,
+          "room": "Audimax"
+        },
+        {
+          "subject_short_name": "swed",
+          "timeslot_name": "3",
+          "day_of_week": "Friday",
+          "course_type": "Exercise",
+          "building": "1",
+          "room": "249"
+        }
+      ]
+    }
+  ],
+  "subjects": [
+    {
+      "short_name": "DisMa",
+      "full_name": "Diskrete Mathematik",
+      "professor": "Kamlage"
+    },
+    {
+      "short_name": "TI",
+      "full_name": "Theoretische Informatik",
+      "professor": "Andersson"
+    },
+    {
+      "short_name": "RT",
+      "full_name": "Realtime Systems",
+      "professor": "Deegener"
+    },
+    {
+      "short_name": "SWED",
+      "full_name": "SWE Design",
+      "professor": "Godehardt"
+    }
+  ],
+  "timeslots": [
+    {
+      "name": "1",
+      "start": "08:15:00",
+      "end": "09:45:00"
+    },
+    {
+      "name": "2",
+      "start": "10:00:00",
+      "end": "11:30:00"
+    },
+    {
+      "name": "3",
+      "start": "11:45:00",
+      "end": "13:15:00"
+    },
+    {
+      "name": "4",
+      "start": "14:15:00",
+      "end": "15:45:00"
+    },
+    {
+      "name": "5",
+      "start": "16:00:00",
+      "end": "17:30:00"
+    },
+    {
+      "name": "6",
+      "start": "17:45:00",
+      "end": "19:15:00"
+    }
+  ]
+}

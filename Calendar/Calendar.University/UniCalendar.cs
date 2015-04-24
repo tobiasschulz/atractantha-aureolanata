@@ -1,8 +1,9 @@
 ﻿using System;
 using TS.Common.Calendar;
 using System.Collections.Generic;
+using Core.Common;
 
-namespace UniversityCalendar
+namespace Calendar.University
 {
 	public class UniCalendar : CalendarBase
 	{
@@ -12,7 +13,27 @@ namespace UniversityCalendar
 
 		public UniCalendar (UniConfig config)
 		{
-
+			foreach (Semester semester in config.Config.Semesters) {
+				foreach (Course course in semester.Courses) {
+					// choose right day of week
+					DateTime date;
+					for (date = semester.Start; date.DayOfWeek != course.DayOfWeek; date += TimeSpan.FromDays (1)) {
+					}
+					// iterate over every week in the semester
+					for (; date < semester.End; date += TimeSpan.FromDays (7)) {
+						UniAppointment appointment = new UniAppointment {
+							Title = course.Subject.ShortName + " " + course.CourseType + " " + course.Subject.Professor,
+							StartDate = date + course.Timeslot.Start,
+							EndDate = date + course.Timeslot.End,
+							Body = "Subject: " + course.Subject.FullName,
+							IsAllDayEvent = false,
+							Location = ((course.Building ?? "") + " " + (course.Room ?? "")).Trim (),
+						};
+						Log.Info (appointment.StartDate, ", ", appointment.Title, ", ", appointment.Location);
+						appointments.Add (appointment);
+					}
+				}
+			}
 		}
 
 		public void Add (UniAppointment appointment)

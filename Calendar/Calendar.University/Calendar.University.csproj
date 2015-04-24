@@ -45,6 +45,12 @@
     <Compile Include="UniAppointment.cs" />
     <Compile Include="UniCalendar.cs" />
     <Compile Include="UniConfig.cs" />
+    <Compile Include="Subject.cs" />
+    <Compile Include="Timeslot.cs" />
+    <Compile Include="Semester.cs" />
+    <Compile Include="Season.cs" />
+    <Compile Include="Course.cs" />
+    <Compile Include="CourseType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
