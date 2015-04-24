@@ -21,13 +21,14 @@ namespace Calendar.University
 					}
 					// iterate over every week in the semester
 					for (; date < semester.End; date += TimeSpan.FromDays (7)) {
+						string courseType = course.CourseType == CourseType.Lecture ? "Vorlesung" : "Übung";
 						UniAppointment appointment = new UniAppointment {
-							Title = course.Subject.ShortName + " " + course.CourseType + " " + course.Subject.Professor,
+							Title = course.Subject.ShortName + " " + courseType + " " + course.Subject.Professor,
 							StartDate = date + course.Timeslot.Start,
 							EndDate = date + course.Timeslot.End,
 							Body = "Subject: " + course.Subject.FullName,
 							IsAllDayEvent = false,
-							Location = ((course.Building ?? "") + " " + (course.Room ?? "")).Trim (),
+							Location = ((course.Building ?? "") + "-" + (course.Room ?? "")).Trim ('-', ' '),
 						};
 						Log.Info (appointment.StartDate, ", ", appointment.Title, ", ", appointment.Location);
 						appointments.Add (appointment);
