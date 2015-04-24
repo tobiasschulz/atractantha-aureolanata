@@ -66,7 +66,7 @@ namespace TS.Google.Calendar
 			AddEvents (newEvents);
 
 			foreach (Event e in existingEvents.Items) {
-				Log.Debug ("e: ", e.Summary, "/", e.Start.DateTimeRaw);
+				Log.Debug ("delete: ", e.Summary, "/", e.Start.DateTimeRaw);
 
 				try {
 					var request = service.Events.Delete (calendarId: calendarId, eventId: e.Id);
