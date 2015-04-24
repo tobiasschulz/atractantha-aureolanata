@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A5FEE380-C9A6-49C6-A664-68A8C05CED62}</ProjectGuid>
+    <ProjectGuid>{9AA292EA-8364-4514-A2F4-52F0B73333FA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>UniversityCalendar</RootNamespace>
-    <AssemblyName>UniversityCalendar</AssemblyName>
+    <RootNamespace>Calendar.University</RootNamespace>
+    <AssemblyName>Calendar.University</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -25,27 +25,10 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <Externalconsole>true</Externalconsole>
   </PropertyGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UniCalendar.cs" />
-    <Compile Include="UniAppointment.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="UniConfig.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TS.Common.Calendar\TS.Common.Calendar.csproj">
-      <Project>{9F791C0B-FE99-42D6-9471-AED26EA22210}</Project>
-      <Name>TS.Common.Calendar</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TS.Google.Calendar\TS.Google.Calendar.csproj">
-      <Project>{2580EE12-DA73-4A06-B4EB-DCA29BAAAE73}</Project>
-      <Name>TS.Google.Calendar</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -57,9 +40,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="UniAppointment.cs" />
+    <Compile Include="UniCalendar.cs" />
+    <Compile Include="UniConfig.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
     <None Include="App.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Calendar.Google\Calendar.Google.csproj">
+      <Project>{90847379-F83B-4C8C-BA07-78516E0F0149}</Project>
+      <Name>Calendar.Google</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Calendar.Common\Calendar.Common.csproj">
+      <Project>{5F9E8FBD-2884-45F9-962D-A9D3BC7FF757}</Project>
+      <Name>Calendar.Common</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

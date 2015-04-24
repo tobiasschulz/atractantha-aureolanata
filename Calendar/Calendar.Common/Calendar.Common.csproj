@@ -3,14 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{9F791C0B-FE99-42D6-9471-AED26EA22210}</ProjectGuid>
+    <ProjectGuid>{5F9E8FBD-2884-45F9-962D-A9D3BC7FF757}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>TS.Common.Calendar</RootNamespace>
-    <AssemblyName>TS.Common.Calendar</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
-    <UseMSBuildEngine>False</UseMSBuildEngine>
+    <RootNamespace>Calendar.Common</RootNamespace>
+    <AssemblyName>Calendar.Common</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,23 +27,27 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ICalFormat.cs" />
-    <Compile Include="CalendarBase.cs" />
-    <Compile Include="AppointmentBase.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="Core.Portable">
-      <HintPath>..\packages\Core.Common.0.1.26\lib\portable-net45+win\Core.Portable.dll</HintPath>
+      <HintPath>..\packages\Core.Common.0.1.26\lib\net40\Core.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Platform">
+      <HintPath>..\packages\Core.Common.0.1.26\lib\net40\Core.Platform.dll</HintPath>
     </Reference>
     <Reference Include="DDay.iCal">
       <HintPath>..\packages\DDay.iCal.1.0.2.575\lib\DDay.iCal.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\portable-net45+wp80+win8+wpa81+aspnetcore50\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AppointmentBase.cs" />
+    <Compile Include="CalendarBase.cs" />
+    <Compile Include="ICalFormat.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
