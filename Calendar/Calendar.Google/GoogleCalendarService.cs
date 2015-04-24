@@ -55,15 +55,9 @@ namespace TS.Google.Calendar
 			}
 		}
 
-		public void Sync (CalendarBase cal)
+		public void Clear ()
 		{
 			Events existingEvents = ListEvents ();
-			IEnumerable<Event> allEvents = ConvertEvents (cal);
-
-			IEnumerable<Event> newEvents = from e in allEvents
-			                               where existingEvents.Items.All (ee => ee.Summary != e.Summary)
-			                               select e; 
-			AddEvents (newEvents);
 
 			foreach (Event e in existingEvents.Items) {
 				Log.Debug ("delete: ", e.Summary, "/", e.Start.DateTimeRaw);
@@ -76,6 +70,17 @@ namespace TS.Google.Calendar
 					Log.Error (ex);
 				}
 			}
+		}
+
+		public void Sync (CalendarBase cal)
+		{
+			Events existingEvents = ListEvents ();
+			IEnumerable<Event> allEvents = ConvertEvents (cal);
+
+			IEnumerable<Event> newEvents = from e in allEvents
+			                               where existingEvents.Items.All (ee => ee.Summary != e.Summary)
+			                               select e; 
+			AddEvents (newEvents);
 
 			foreach (Event e in allEvents) {
 				IEnumerable<Event> sameEvents = existingEvents.Items.Where (ee => ee.Start.DateTime == e.Start.DateTime); // ee.Summary == e.Summary && 
