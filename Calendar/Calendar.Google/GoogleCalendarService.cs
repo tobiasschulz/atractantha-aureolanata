@@ -65,8 +65,13 @@ namespace TS.Google.Calendar
 			                               select e; 
 			AddEvents (newEvents);
 
-			foreach (Event e in allEvents) {
+			foreach (Event e in existingEvents.Items) {
 				IEnumerable<Event> sameEvents = existingEvents.Items.Where (ee => ee.Summary == e.Summary && ee.Start.DateTimeRaw == e.Start.DateTimeRaw);
+				Log.Debug ("e: ", e.Summary, "/", e.Start.DateTimeRaw, "/", string.Join (",", sameEvents));
+			}
+
+			foreach (Event e in allEvents) {
+				IEnumerable<Event> sameEvents = existingEvents.Items.Where (ee => ee.Summary == e.Summary && ee.Start.DateTime == e.Start.DateTime);
 				Log.Debug (e.Summary, "/", e.Start.DateTimeRaw, "/", string.Join (",", sameEvents));
 				UpdateEvents (sameEvents, e);
 			}
@@ -90,7 +95,7 @@ namespace TS.Google.Calendar
 				var newEvent = new Event {
 					Start = new EventDateTime { DateTime = appointment.StartDate },
 					End = new EventDateTime { DateTime = appointment.EndDate },
-					Description = "Description",
+					Description = appointment.Body,
 					Summary = appointment.Title,
 					Location = appointment.Location,
 				};
@@ -110,8 +115,13 @@ namespace TS.Google.Calendar
 		void UpdateEvents (IEnumerable<Event> events, Event update)
 		{
 			foreach (Event e in events) {
-				service.Events.Update (body: update, calendarId: calendarId, eventId: e.Id);
 				Log.Debug ("Update event: ", e.Start, e.Summary, e.Location);
+				e.Summary = update.Summary;
+				e.Location = update.Location;
+				e.End = update.End;
+				e.Description = update.Description;
+				var request = service.Events.Update (body: e, calendarId: calendarId, eventId: e.Id);
+				request.Execute ();
 			}
 		}
 	}
