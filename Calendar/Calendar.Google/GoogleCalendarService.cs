@@ -5,12 +5,12 @@ using Google.Apis.Util.Store;
 using Google.Apis.Calendar.v3;
 using Google.Apis.Calendar.v3.Data;
 using System.Threading;
-using TS.Common.Calendar;
 using System.Collections.Generic;
 using System.Linq;
 using Core.Common;
+using Core.Calendar;
 
-namespace TS.Google.Calendar
+namespace Calendar.Google
 {
 	public class GoogleCalendarService
 	{
@@ -78,7 +78,7 @@ namespace TS.Google.Calendar
 			IEnumerable<Event> allEvents = ConvertEvents (cal);
 
 			IEnumerable<Event> newEvents = from e in allEvents
-			                               where existingEvents.Items.All (ee => ee.Summary != e.Summary)
+			                               where existingEvents.Items.All (ee => ee.Start.DateTime != e.Start.DateTime)
 			                               select e; 
 			AddEvents (newEvents);
 

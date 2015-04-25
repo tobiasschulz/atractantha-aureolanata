@@ -1,7 +1,7 @@
 ﻿using System;
-using TS.Common.Calendar;
 using System.Collections.Generic;
 using Core.Common;
+using Core.Calendar;
 
 namespace Calendar.University
 {

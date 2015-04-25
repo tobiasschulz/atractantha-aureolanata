@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar.Google", "Calendar.Google\Calendar.Google.csproj", "{90847379-F83B-4C8C-BA07-78516E0F0149}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar.Common", "Calendar.Common\Calendar.Common.csproj", "{5F9E8FBD-2884-45F9-962D-A9D3BC7FF757}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar.University", "Calendar.University\Calendar.University.csproj", "{9AA292EA-8364-4514-A2F4-52F0B73333FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar.Exchange", "Calendar.Exchange\Calendar.Exchange.csproj", "{AD34C1D8-F5B4-46EF-A81B-A7E789F49440}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5F9E8FBD-2884-45F9-962D-A9D3BC7FF757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F9E8FBD-2884-45F9-962D-A9D3BC7FF757}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F9E8FBD-2884-45F9-962D-A9D3BC7FF757}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F9E8FBD-2884-45F9-962D-A9D3BC7FF757}.Release|Any CPU.Build.0 = Release|Any CPU
 		{90847379-F83B-4C8C-BA07-78516E0F0149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{90847379-F83B-4C8C-BA07-78516E0F0149}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90847379-F83B-4C8C-BA07-78516E0F0149}.Release|Any CPU.ActiveCfg = Release|Any CPU

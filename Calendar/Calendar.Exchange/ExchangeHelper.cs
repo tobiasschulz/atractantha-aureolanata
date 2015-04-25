@@ -1,7 +1,7 @@
 ﻿using System;
 using Core.Common;
 
-namespace TS.Exchange.Calendar
+namespace Calendar.Exchange
 {
 	public static class ExchangeHelper
 	{

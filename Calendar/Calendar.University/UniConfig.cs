@@ -1,7 +1,7 @@
 ﻿using System;
 using Core.Common;
-using TS.Google.Calendar;
 using Newtonsoft.Json;
+using Calendar.Google;
 
 namespace Calendar.University
 {

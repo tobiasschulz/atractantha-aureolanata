@@ -32,11 +32,17 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="DDay.iCal">
+      <HintPath>..\packages\DDay.iCal.1.0.2.575\lib\DDay.iCal.dll</HintPath>
+    </Reference>
     <Reference Include="Core.Portable">
-      <HintPath>..\packages\Core.Common.0.1.26\lib\net45\Core.Portable.dll</HintPath>
+      <HintPath>..\packages\Core.Common.0.1.38\lib\net45\Core.Portable.dll</HintPath>
     </Reference>
     <Reference Include="Core.Platform">
-      <HintPath>..\packages\Core.Common.0.1.26\lib\net45\Core.Platform.dll</HintPath>
+      <HintPath>..\packages\Core.Common.0.1.38\lib\net45\Core.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Calendar">
+      <HintPath>..\packages\Core.Calendar.0.1.11\lib\net45\Core.Calendar.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -63,10 +69,6 @@
     <ProjectReference Include="..\Calendar.Google\Calendar.Google.csproj">
       <Project>{90847379-F83B-4C8C-BA07-78516E0F0149}</Project>
       <Name>Calendar.Google</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Calendar.Common\Calendar.Common.csproj">
-      <Project>{5F9E8FBD-2884-45F9-962D-A9D3BC7FF757}</Project>
-      <Name>Calendar.Common</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

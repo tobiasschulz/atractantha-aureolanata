@@ -2,8 +2,8 @@
 using Microsoft.Exchange.WebServices.Data;
 using System.IO;
 using Core.Common;
-using TS.Exchange.Calendar;
-using TS.Common.Calendar;
+using Calendar.Exchange;
+using Core.Calendar;
 
 namespace ExchangeSync
 {

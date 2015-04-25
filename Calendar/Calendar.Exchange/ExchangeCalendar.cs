@@ -1,7 +1,7 @@
-﻿using TS.Common.Calendar;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Core.Calendar;
 
-namespace TS.Exchange.Calendar
+namespace Calendar.Exchange
 {
 	public class ExchangeCalendar : CalendarBase
 	{

@@ -1,8 +1,8 @@
 ﻿using System;
-using TS.Common.Calendar;
 using Microsoft.Exchange.WebServices.Data;
+using Core.Calendar;
 
-namespace TS.Exchange.Calendar
+namespace Calendar.Exchange
 {
 	public class ExchangeAppointment : AppointmentBase
 	{

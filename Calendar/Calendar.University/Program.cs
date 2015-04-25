@@ -1,6 +1,6 @@
 ﻿using Core.Common;
-using TS.Google.Calendar;
 using System;
+using Calendar.Google;
 
 namespace Calendar.University
 {

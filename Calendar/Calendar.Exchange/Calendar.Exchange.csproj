@@ -32,17 +32,23 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Core.Portable">
-      <HintPath>..\packages\Core.Common.0.1.26\lib\net45\Core.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Core.Platform">
-      <HintPath>..\packages\Core.Common.0.1.26\lib\net45\Core.Platform.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Exchange.WebServices.Auth">
       <HintPath>..\packages\Microsoft.Exchange.WebServices.2.2\lib\40\Microsoft.Exchange.WebServices.Auth.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Exchange.WebServices">
       <HintPath>..\packages\Microsoft.Exchange.WebServices.2.2\lib\40\Microsoft.Exchange.WebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="DDay.iCal">
+      <HintPath>..\packages\DDay.iCal.1.0.2.575\lib\DDay.iCal.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Portable">
+      <HintPath>..\packages\Core.Common.0.1.39\lib\net45\Core.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Platform">
+      <HintPath>..\packages\Core.Common.0.1.39\lib\net45\Core.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Calendar">
+      <HintPath>..\packages\Core.Calendar.0.1.12\lib\net45\Core.Calendar.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -61,11 +67,5 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Calendar.Common\Calendar.Common.csproj">
-      <Project>{5F9E8FBD-2884-45F9-962D-A9D3BC7FF757}</Project>
-      <Name>Calendar.Common</Name>
-    </ProjectReference>
   </ItemGroup>
 </Project>
