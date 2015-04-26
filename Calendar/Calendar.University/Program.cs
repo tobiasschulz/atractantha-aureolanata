@@ -16,6 +16,7 @@ namespace Calendar.University
 				UniCalendar cal = new UniCalendar (config);
 
 				GoogleCalendarService google = new GoogleCalendarService (config);
+				google.Clear ();
 				google.Sync (cal);
 			} catch (Exception ex) {
 				Log.FatalError (ex);
