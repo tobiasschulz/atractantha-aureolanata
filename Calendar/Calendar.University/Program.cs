@@ -9,8 +9,6 @@ namespace Calendar.University
 	{
 		static void Main (string[] args)
 		{
-			GoogleBindingRedirect.Apply ();
-
 			Logging.Enable ();
 			Networking.DisableCertificateValidation ();
 

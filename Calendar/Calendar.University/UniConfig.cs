@@ -2,11 +2,15 @@
 using Core.Common;
 using Newtonsoft.Json;
 using Core.Calendar.Google;
+using Core.Google.Auth.Desktop;
 
 namespace Calendar.University
 {
 	public class UniConfig : IGoogleConfig
 	{
+		internal readonly string ClientId = StringHelper.Base64Decode ("MTUxMjM0ODM1NjE5LXA3b2ZwbTI3NXBqamlqZjVwOTcwbzk0ZWEzM2VubjE1LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29t");
+		internal readonly string ClientSecret = StringHelper.Base64Decode ("X21XdFpRMEJxS21zdFhjNnVVcTVzaHJR");
+
 		public InternalConfig Config { get; private set; }
 
 		public UniConfig ()
@@ -169,6 +173,12 @@ namespace Calendar.University
 		public string GoogleUser {
 			get {
 				return "tobiasschulz.frauas@gmail.com";
+			}
+		}
+
+		public IGoogleAuth Auth {
+			get {
+				return new GoogleWebAuth (clientId: ClientId, clientSecret: ClientSecret);
 			}
 		}
 
