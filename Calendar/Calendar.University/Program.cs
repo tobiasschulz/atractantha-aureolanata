@@ -70,6 +70,16 @@ namespace Calendar.University
 				PortableThread.Sleep (500);
 			}
 
+			foreach (IEditableAppointment destEvent in destEvents.Intersect(sourceEvents)) {
+				AppointmentBase sourceEvent = sourceEvents.First (e => e.Equals (destEvent));
+				//Log.Debug ("update: ", destEvent);
+
+				//sourceEvent.CopyTo (destEvent);
+
+				//destEvent.Update ();
+				//PortableThread.Sleep (500);
+			}
+
 			/*
 			GoogleAppointment existingEvents = ListEvents ();
 			IEnumerable<Event> allEvents = ConvertEvents (cal);
