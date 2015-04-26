@@ -70,6 +70,13 @@ namespace Calendar.University
 				PortableThread.Sleep (500);
 			}
 
+			foreach (IEditableAppointment app in destEvents.GroupBy(s => s).SelectMany (grp => grp.Skip(1))) {
+				Log.Debug ("delete: ", app);
+
+				app.Delete ();
+				PortableThread.Sleep (500);
+			}
+
 			foreach (IEditableAppointment destEvent in destEvents.Intersect(sourceEvents)) {
 				AppointmentBase sourceEvent = sourceEvents.First (e => e.Equals (destEvent));
 				//Log.Debug ("update: ", destEvent);
