@@ -35,15 +35,6 @@
     <Reference Include="DDay.iCal">
       <HintPath>..\packages\DDay.iCal.1.0.2.575\lib\DDay.iCal.dll</HintPath>
     </Reference>
-    <Reference Include="Core.Portable">
-      <HintPath>..\packages\Core.Common.0.1.39\lib\net45\Core.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Core.Platform">
-      <HintPath>..\packages\Core.Common.0.1.39\lib\net45\Core.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="Core.Calendar">
-      <HintPath>..\packages\Core.Calendar.0.1.12\lib\net45\Core.Calendar.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
     </Reference>
@@ -89,6 +80,15 @@
     <Reference Include="System.Net.Http.Extensions">
       <HintPath>..\packages\Core.Calendar.Google.0.1.2\lib\net45\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Core.Calendar">
+      <HintPath>..\packages\Core.Calendar.0.1.13\lib\net45\Core.Calendar.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Portable">
+      <HintPath>..\packages\Core.Common.0.1.40\lib\net45\Core.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Platform">
+      <HintPath>..\packages\Core.Common.0.1.40\lib\net45\Core.Platform.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,5 +107,6 @@
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="App.config" />
   </ItemGroup>
 </Project>
