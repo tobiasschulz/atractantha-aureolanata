@@ -5,6 +5,9 @@
       "year": 2015,
       "start": "2015-04-13T00:00:00",
       "end": "2015-07-17T00:00:00",
+      "vacation_days": [
+        "2015-05-01T00:00:00"
+      ],
       "courses": [
         {
           "subject_short_name": "ti",

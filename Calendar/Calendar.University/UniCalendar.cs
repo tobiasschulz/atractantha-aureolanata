@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Core.Common;
 using Core.Calendar;
+using System.Linq;
 
 namespace Calendar.University
 {
@@ -21,6 +22,8 @@ namespace Calendar.University
 					}
 					// iterate over every week in the semester
 					for (; date < semester.End; date += TimeSpan.FromDays (7)) {
+						if (semester.VacationDays.Any (v => v.Date == date.Date))
+							continue;
 						string courseType = course.CourseType == CourseType.Lecture ? "Vorlesung" : "Übung";
 						UniAppointment appointment = new UniAppointment {
 							Title = course.Subject.ShortName + " " + courseType + " " + course.Subject.Professor,

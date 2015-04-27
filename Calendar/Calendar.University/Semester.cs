@@ -18,12 +18,16 @@ namespace Calendar.University
 		[JsonProperty ("end")]
 		public DateTime End { get; set; }
 
+		[JsonProperty ("vacation_days")]
+		public DateTime[] VacationDays { get; set; }
+
 		[JsonProperty ("courses")]
 		public Course[] Courses { get; set; }
 
 		public Semester ()
 		{
 			Courses = new Course[0];
+			VacationDays = new DateTime[0];
 		}
 	}
 }
