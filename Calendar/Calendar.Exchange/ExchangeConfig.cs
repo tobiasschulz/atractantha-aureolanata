@@ -1,10 +1,12 @@
 ﻿using System;
 using Microsoft.Exchange.WebServices.Data;
 using Core.Common;
+using Core.Calendar.Google;
+using Core.Google.Auth.Desktop;
 
-namespace ExchangeSync
+namespace Calendar.Exchange
 {
-	public class ExchangeConfig
+	public class ExchangeConfig : IGoogleConfig
 	{
 		readonly Config config;
 
@@ -15,6 +17,9 @@ namespace ExchangeSync
 		public string User { get { return config.user; } }
 
 		public string ExchangeUri { get { return config.exchange_uri; } }
+
+		internal readonly string ClientId = StringHelper.Base64Decode ("MTUxMjM0ODM1NjE5LXA3b2ZwbTI3NXBqamlqZjVwOTcwbzk0ZWEzM2VubjE1LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29t");
+		internal readonly string ClientSecret = StringHelper.Base64Decode ("X21XdFpRMEJxS21zdFhjNnVVcTVzaHJR");
 
 		public ExchangeConfig ()
 		{
@@ -34,6 +39,29 @@ namespace ExchangeSync
 			Service.TraceFlags = TraceFlags.All;
 			Service.Url = new Uri (config.exchange_uri);
 		}
+
+
+		#region IGoogleConfig implementation
+
+		public string GoogleUser {
+			get {
+				return "tobiasschulz.digitalkraft@gmail.com";
+			}
+		}
+
+		public IGoogleAuth Auth {
+			get {
+				return new GoogleWebAuth (clientId: ClientId, clientSecret: ClientSecret);
+			}
+		}
+
+		public string CalendarName {
+			get {
+				return "exchange";
+			}
+		}
+
+		#endregion
 
 		private class Config
 		{

@@ -3,7 +3,7 @@ using System.IO;
 using Microsoft.Exchange.WebServices.Data;
 using Core.Common;
 
-namespace ExchangeSync
+namespace Calendar.Exchange
 {
 	public class LogTraceListener : ITraceListener
 	{

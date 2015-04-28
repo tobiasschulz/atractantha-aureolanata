@@ -4,16 +4,19 @@ using System.IO;
 using Core.Common;
 using Calendar.Exchange;
 using Core.Calendar;
+using System.Collections.Generic;
 
-namespace ExchangeSync
+namespace Calendar.Exchange
 {
-	public class ExchangeCalendarService
+	public class ExchangeCalendarService : CalendarBase
 	{
 		public ExchangeConfig Config { get; private set; }
 
 		public ExchangeService Service { get { return Config.Service; } }
 
-		private ExchangeCalendar calendar = new ExchangeCalendar ();
+		private readonly ExchangeCalendar calendar = new ExchangeCalendar ();
+
+		public override IEnumerable<AppointmentBase> Appointments { get { return calendar.Appointments; } }
 
 		public ExchangeCalendarService (ExchangeConfig config)
 		{

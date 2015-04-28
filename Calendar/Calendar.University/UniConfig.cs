@@ -182,6 +182,12 @@ namespace Calendar.University
 			}
 		}
 
+		public string CalendarName {
+			get {
+				return "stundenplan";
+			}
+		}
+
 		#endregion
 
 		public class InternalConfig
