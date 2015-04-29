@@ -17,6 +17,11 @@ namespace Calendar.Exchange
 			ExchangeHelper.Catch<ServiceObjectPropertyException> ("Location", () => Location = raw.Location ?? "");
 			ExchangeHelper.Catch<ServiceObjectPropertyException> ("Organizer", () => Organizer = raw.Organizer.Address ?? "");
 		}
+
+		public override string ToString ()
+		{
+			return string.Format ("[ExchangeAppointment: Title={0}, Organizer={1}, StartDate={2}, EndDate={3}, Body={4}, Location={5}, IsAllDayEvent={6}, UID={7}]", Title, Organizer, StartDate, EndDate, Body != null ? Body.Length : 0, Location, IsAllDayEvent, UID);
+		}
 	}
 }
 

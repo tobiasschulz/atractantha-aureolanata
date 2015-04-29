@@ -25,7 +25,7 @@ namespace Calendar.Exchange
 				//cal.ExportICal (fullPath: "output.ical");
 
 				GoogleCalendarService google = new GoogleCalendarService (config);
-				google.Clear ();
+				//google.Clear ();
 
 				Sync (source: cal, dest: google);
 			} catch (Exception ex) {
