@@ -15,6 +15,7 @@ namespace Calendar.Exchange
 			ExchangeHelper.Catch<ServiceObjectPropertyException> ("UniqueId", () => UID = raw.Id.UniqueId);
 			ExchangeHelper.Catch<ServiceObjectPropertyException> ("Body", () => Body = raw.Body ?? "");
 			ExchangeHelper.Catch<ServiceObjectPropertyException> ("Location", () => Location = raw.Location ?? "");
+			ExchangeHelper.Catch<ServiceObjectPropertyException> ("Organizer", () => Organizer = raw.Organizer.Address ?? "");
 		}
 	}
 }
