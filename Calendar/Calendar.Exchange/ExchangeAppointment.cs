@@ -9,8 +9,8 @@ namespace Calendar.Exchange
 		public ExchangeAppointment (Appointment raw)
 		{
 			ExchangeHelper.Catch<ServiceObjectPropertyException> ("Subject", () => Title = raw.Subject);
-			ExchangeHelper.Catch<ServiceObjectPropertyException> ("Start", () => StartDate = raw.Start);
-			ExchangeHelper.Catch<ServiceObjectPropertyException> ("End", () => EndDate = raw.End);
+			ExchangeHelper.Catch<ServiceObjectPropertyException> ("Start", () => StartDate = raw.Start.ToLocalTime ());
+			ExchangeHelper.Catch<ServiceObjectPropertyException> ("End", () => EndDate = raw.End.ToLocalTime ());
 			ExchangeHelper.Catch<ServiceObjectPropertyException> ("IsAllDayEvent", () => IsAllDayEvent = raw.IsAllDayEvent);
 			ExchangeHelper.Catch<ServiceObjectPropertyException> ("UniqueId", () => UID = raw.Id.UniqueId);
 			ExchangeHelper.Catch<ServiceObjectPropertyException> ("Body", () => Body = raw.Body ?? "");

@@ -25,7 +25,16 @@ namespace Calendar.Exchange
 		{
 			config = ConfigHelper.OpenConfig<Config> (Storage.DefaultConfigFile);
 
-			ExchangeService service = new ExchangeService (ExchangeVersion.Exchange2007_SP1, TimeZoneInfo.Utc);
+			const string timeZoneName = "W. Europe Standard Time";
+			TimeSpan timeZoneOffset = new TimeSpan (01, 00, 00);
+			TimeZoneInfo timeZone;
+			try {
+				timeZone = TimeZoneInfo.FindSystemTimeZoneById (timeZoneName);
+			} catch (TimeZoneNotFoundException) {
+				timeZone = TimeZoneInfo.CreateCustomTimeZone (timeZoneName, timeZoneOffset, timeZoneName, timeZoneName);
+			}
+
+			ExchangeService service = new ExchangeService (ExchangeVersion.Exchange2007_SP1, timeZone);
 			service.Credentials = new WebCredentials (config.user, config.pass);
 			service.TraceEnabled = true;
 			service.TraceListener = new LogTraceListener ();
