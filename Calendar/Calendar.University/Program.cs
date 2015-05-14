@@ -1,9 +1,12 @@
-﻿using Core.Common;
-using System;
-using Core.Calendar.Google;
+﻿using System;
+using System.Linq;
 using System.Reflection;
 using Core.Calendar;
-using System.Linq;
+using Core.Calendar.Google;
+using Core.Common;
+using Core.IO;
+using Core.Net;
+using Core.Portable;
 
 namespace Calendar.University
 {
@@ -60,21 +63,21 @@ namespace Calendar.University
 				Log.Debug ("insert: ", app);
 
 				dest.AddAppointment (app);
-				PortableThread.Sleep (500);
+				Thread.Sleep (500);
 			}
 
 			foreach (IEditableAppointment app in destEvents.Except(sourceEvents)) {
 				Log.Debug ("delete: ", app);
 
 				app.Delete ();
-				PortableThread.Sleep (500);
+				Thread.Sleep (500);
 			}
 
 			foreach (IEditableAppointment app in destEvents.GroupBy(s => s).SelectMany (grp => grp.Skip(1))) {
 				Log.Debug ("delete: ", app);
 
 				app.Delete ();
-				PortableThread.Sleep (500);
+				Thread.Sleep (500);
 			}
 
 			foreach (IEditableAppointment destEvent in destEvents.Intersect(sourceEvents)) {
