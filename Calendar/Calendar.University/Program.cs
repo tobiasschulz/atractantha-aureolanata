@@ -7,6 +7,7 @@ using Core.Common;
 using Core.IO;
 using Core.Net;
 using Core.Portable;
+using Core.Platform;
 
 namespace Calendar.University
 {
@@ -14,7 +15,7 @@ namespace Calendar.University
 	{
 		static void Main (string[] args)
 		{
-			Logging.Enable ();
+			DesktopPlatform.Start ();
 			Networking.DisableCertificateValidation ();
 
 			Assembly ass = Assembly.LoadFrom ("Google.Apis.Calendar.v3.dll");
@@ -23,6 +24,8 @@ namespace Calendar.University
 			}
 
 			new Program ().Run ();
+
+			DesktopPlatform.Finish ();
 		}
 
 		public void Run ()

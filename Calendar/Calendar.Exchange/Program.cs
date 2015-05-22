@@ -6,6 +6,7 @@ using Core.Common;
 using Core.IO;
 using Core.Net;
 using Core.Portable;
+using Core.Platform;
 
 namespace Calendar.Exchange
 {
@@ -13,10 +14,12 @@ namespace Calendar.Exchange
 	{
 		static void Main (string[] args)
 		{
-			Logging.Enable ();
+			DesktopPlatform.Start ();
 			Networking.DisableCertificateValidation ();
 
 			new Program ().Run ();
+
+			DesktopPlatform.Finish ();
 		}
 
 		public void Run ()
