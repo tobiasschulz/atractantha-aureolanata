@@ -7,6 +7,7 @@ using Core.IO;
 using Core.Net;
 using Core.Portable;
 using Core.Platform;
+using System.Collections.Generic;
 
 namespace Calendar.Exchange
 {
@@ -33,13 +34,100 @@ namespace Calendar.Exchange
 				GoogleCalendarService google = new GoogleCalendarService (config);
 				//google.Clear ();
 
+				OvertimeHours (source: cal);
+
 				Sync (source: cal, dest: google);
+
 			} catch (Exception ex) {
 				Log.FatalError (ex);
 			}
 		}
 
-		public void Sync (ICalendar source, IEditableCalendar dest)
+		void OvertimeHours (ICalendar source)
+		{
+			var hoursPerMonth = new Dictionary<string,int> {
+				["2015-02" ] = 45,
+				["2015-03" ] = 60,
+				["2015-04" ] = 60,
+				["2015-05" ] = 60,
+				["2015-06" ] = 60,
+				["2015-07" ] = 60,
+				["2015-08" ] = 60,
+				["2015-09" ] = 60,
+				["2015-10" ] = 60,
+				["2015-11" ] = 60,
+				["2015-12" ] = 60,
+				["2016-01" ] = 60,
+				["2016-02" ] = 60,
+				["2016-03" ] = 60,
+				["2016-04" ] = 60,
+				["2016-05" ] = 60,
+				["2016-06" ] = 60,
+				["2016-07" ] = 60,
+				["2016-08" ] = 60,
+				["2016-09" ] = 60,
+				["2016-10" ] = 60,
+				["2016-11" ] = 60,
+				["2016-12" ] = 60,
+			};
+
+			AppointmentBase[] sourceEvents = source.Appointments.ToArray ();
+
+			double ueberstunden = 0;
+
+			Log.Info ("Stunden: ");
+			Log.Indent++;
+			foreach (string month in sourceEvents.Select(a => a.StartDate.ToString ("yyyy-MM")).Distinct().OrderBy(m => m)) {
+
+				Log.Info ("Monat: ", month);
+				Log.Indent++;
+
+				double hoursIst = 0;
+				double hoursSoll = hoursPerMonth [month];
+
+				foreach (string date in sourceEvents.Select(a => a.StartDate.ToString ("yyyy-MM-dd")).Distinct().OrderBy(d => d)) {
+					if (!date.StartsWith (month))
+						continue;
+
+					DateTime start = default(DateTime);
+					DateTime end = default(DateTime);
+
+					foreach (AppointmentBase app in sourceEvents) {
+						string _date = app.StartDate.ToString ("yyyy-MM-dd");
+
+						if (date != _date)
+							continue;
+
+						//Log.Debug (_date);
+
+						if (app.Title == "START")
+							start = app.StartDate;
+						if (app.Title == "ENDE")
+							end = app.EndDate;
+					}
+
+					double hours = (end - start).TotalHours;
+					if (hours < 0)
+						hours = 0;
+					hoursIst += hours;
+
+					Log.Info (string.Format ("Datum: {0} Stunden: {1}", date, hours));
+				}
+
+				double ueberstundenThisMonth = (hoursIst < hoursSoll) ? hoursIst - hoursSoll : hoursIst - hoursSoll - 5;
+
+				Log.Info ("Stunden im Monat: ", hoursIst, " von ", hoursSoll);
+				Log.Info ("Überstunden aus Vormonat: ", ueberstunden);
+				Log.Info ("Überstunden diesen Monat (minus 5): ", ueberstundenThisMonth);
+
+				ueberstunden += ueberstundenThisMonth;
+
+				Log.Indent--;
+			}
+			Log.Indent--;
+		}
+
+		void Sync (ICalendar source, IEditableCalendar dest)
 		{
 			AppointmentBase[] sourceEvents = source.Appointments.ToArray ();
 			AppointmentBase[] destEvents = dest.Appointments.ToArray ();
