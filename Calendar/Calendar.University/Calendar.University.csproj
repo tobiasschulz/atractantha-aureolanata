@@ -29,9 +29,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="DDay.iCal">
       <HintPath>..\packages\DDay.iCal.1.0.2.575\lib\DDay.iCal.dll</HintPath>
     </Reference>
@@ -51,9 +48,6 @@
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Zlib.Portable">
-      <HintPath>..\packages\Zlib.Portable.1.10.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
-    </Reference>
     <Reference Include="Google.Apis">
       <HintPath>..\packages\Google.Apis.1.9.1\lib\net40\Google.Apis.dll</HintPath>
     </Reference>
@@ -66,38 +60,44 @@
     <Reference Include="Google.Apis.Auth.PlatformServices">
       <HintPath>..\packages\Google.Apis.Auth.1.9.1\lib\net40\Google.Apis.Auth.PlatformServices.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Apis.Calendar.v3">
+      <HintPath>..\packages\Google.Apis.Calendar.v3.1.9.0.1280\lib\portable-net40+sl50+win+wpa81+wp80\Google.Apis.Calendar.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Zlib.Portable">
+      <HintPath>..\packages\Zlib.Portable.1.11.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http.Extensions">
-      <HintPath>..\packages\Core.Calendar.Google.0.1.132\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <HintPath>..\packages\Google.Apis.HttpWorkaround.1.0.1\lib\net45\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Primitives">
-      <HintPath>..\packages\Core.Calendar.Google.0.1.132\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <HintPath>..\packages\Google.Apis.HttpWorkaround.1.0.1\lib\net45\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
-      <HintPath>..\packages\Core.Calendar.Google.0.1.132\lib\net45\System.Net.Http.WebRequest.dll</HintPath>
+      <HintPath>..\packages\Google.Apis.HttpWorkaround.1.0.1\lib\net45\System.Net.Http.WebRequest.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
-      <HintPath>..\packages\Core.Calendar.Google.0.1.132\lib\net45\System.Net.Http.dll</HintPath>
+      <HintPath>..\packages\Google.Apis.HttpWorkaround.1.0.1\lib\net45\System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="Core.Calendar.Google">
-      <HintPath>..\packages\Core.Calendar.Google.0.1.132\lib\net45\Core.Calendar.Google.dll</HintPath>
+      <HintPath>..\packages\Core.Calendar.Google.0.1.173\lib\net45\Core.Calendar.Google.dll</HintPath>
     </Reference>
     <Reference Include="Core.Google.Auth.Desktop">
-      <HintPath>..\packages\Core.Calendar.Google.0.1.132\lib\net45\Core.Google.Auth.Desktop.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Apis.Calendar.v3">
-      <HintPath>..\packages\Google.Apis.Calendar.v3.1.9.0.1260\lib\portable-net40+sl50+win+wpa81+wp80\Google.Apis.Calendar.v3.dll</HintPath>
+      <HintPath>..\packages\Core.Calendar.Google.0.1.173\lib\net45\Core.Google.Auth.Desktop.dll</HintPath>
     </Reference>
     <Reference Include="Core.Calendar">
-      <HintPath>..\packages\Core.Calendar.0.1.142\lib\net45\Core.Calendar.dll</HintPath>
+      <HintPath>..\packages\Core.Calendar.0.1.183\lib\net45\Core.Calendar.dll</HintPath>
     </Reference>
     <Reference Include="Core.Portable">
-      <HintPath>..\packages\Core.Common.0.1.170\lib\net45\Core.Portable.dll</HintPath>
+      <HintPath>..\packages\Core.Common.0.1.211\lib\net45\Core.Portable.dll</HintPath>
     </Reference>
     <Reference Include="Core.Platform">
-      <HintPath>..\packages\Core.Common.0.1.170\lib\net45\Core.Platform.dll</HintPath>
+      <HintPath>..\packages\Core.Common.0.1.211\lib\net45\Core.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Posix">
-      <HintPath>..\packages\Core.Common.0.1.170\lib\net45\Mono.Posix.dll</HintPath>
+      <HintPath>..\packages\Core.Common.0.1.211\lib\net45\Mono.Posix.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +118,5 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="App.config" />
-    <None Include="Core.Calendar.Google.dll.config" />
   </ItemGroup>
 </Project>
