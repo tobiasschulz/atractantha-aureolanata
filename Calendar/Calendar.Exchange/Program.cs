@@ -52,8 +52,8 @@ namespace Calendar.Exchange
 				["2015-05" ] = 60,
 				["2015-06" ] = 60,
 				["2015-07" ] = 60,
-				["2015-08" ] = 60,
-				["2015-09" ] = 60,
+				["2015-08" ] = 160,
+				["2015-09" ] = 160,
 				["2015-10" ] = 60,
 				["2015-11" ] = 60,
 				["2015-12" ] = 60,
@@ -70,6 +70,9 @@ namespace Calendar.Exchange
 				["2016-11" ] = 60,
 				["2016-12" ] = 60,
 			};
+			var hoursPerMonthSick = new Dictionary<string,int> {
+				["2015-06" ] = 15,
+			};
 
 			AppointmentBase[] sourceEvents = source.Appointments.ToArray ();
 
@@ -82,7 +85,9 @@ namespace Calendar.Exchange
 				Log.Info ("Monat: ", month);
 				Log.Indent++;
 
-				double hoursIst = 0;
+				double hoursSick = hoursPerMonthSick.ContainsKey (month) ? hoursPerMonthSick [month] : 0;
+
+				double hoursIst = hoursSick;
 				double hoursSoll = hoursPerMonth [month];
 
 				foreach (string date in sourceEvents.Select(a => a.StartDate.ToString ("yyyy-MM-dd")).Distinct().OrderBy(d => d)) {
@@ -109,14 +114,14 @@ namespace Calendar.Exchange
 					double hours = (end - start).TotalHours;
 					if (hours < 0)
 						hours = 0;
-					hoursIst += hours;
+					hoursIst += hours - 1;
 
 					Log.Info (string.Format ("Datum: {0} Stunden: {1}", date, hours));
 				}
 
 				double ueberstundenThisMonth = (hoursIst < hoursSoll) ? hoursIst - hoursSoll : hoursIst - hoursSoll - 5;
 
-				Log.Info ("Stunden im Monat: ", hoursIst, " von ", hoursSoll);
+				Log.Info ("Stunden im Monat: ", hoursIst, " von ", hoursSoll, " (darin inklusive ", hoursSick, " Stunden krank)");
 				Log.Info ("Überstunden aus Vormonat: ", ueberstunden);
 				Log.Info ("Überstunden diesen Monat (minus 5): ", ueberstundenThisMonth);
 
